@@ -1,0 +1,7 @@
+{"nome":"Mapa Um",
+	"trechos":[
+		{"origem":"A","destino":"B","distancia":10},
+		{"origem":"B","destino":"C","distancia":10},
+		{"origem":"C","destino":"D","distancia":10},
+		{"origem":"B","destino":"D","distancia":15}
+	]}

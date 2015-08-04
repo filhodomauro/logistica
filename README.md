@@ -24,15 +24,16 @@ Interface JSON para acionamento do serviço
  * * distancia - distância em kilômetros entre um ponto e outro
 
 ```
-#!javascript
 
-{"nome":"Mapa Um",
+{
+	"nome":"Mapa Um",
 	"trechos":[
 		{"origem":"A","destino":"B","distancia":10},
 		{"origem":"B","destino":"C","distancia":10},
 		{"origem":"C","destino":"D","distancia":10},
 		{"origem":"B","destino":"D","distancia":15}
-	]}
+	]
+}
 
 ```
 
@@ -67,7 +68,6 @@ Retorna a melhor rota a partir de um mapa, sua origem e destino, além das infor
 ###RESPONSE
 
 ```
-#!javascript
 
 {"trechos":["A","B","D"],"custo":10.0,"distancia":25}
 

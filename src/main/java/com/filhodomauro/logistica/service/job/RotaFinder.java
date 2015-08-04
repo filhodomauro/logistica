@@ -4,6 +4,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.function.Predicate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.filhodomauro.logistica.controller.response.Rota;
 import com.filhodomauro.logistica.model.Trecho;
 import com.filhodomauro.logistica.observer.LogisticaObservable;
@@ -15,6 +18,8 @@ import com.filhodomauro.logistica.repository.TrechoRepository;
  *
  */
 public class RotaFinder implements Observer {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(RotaFinder.class);
 	
 	private LogisticaObservable observable;
 	private TrechoRepository trechoRepository;
@@ -61,6 +66,7 @@ public class RotaFinder implements Observer {
 								String trecho = t.getOutroPonto(origem);
 								Rota novaRota = this.rotaAtual.clone();
 								novaRota.addTrecho(trecho, t.getDistancia());
+								LOG.info("Trecho adicionado à rota [{}] - ", trecho);
 								new RotaFinder(this.observable, this.trechoRepository, novaRota).find(mapa, trecho, destino);
 							}
 						});;
